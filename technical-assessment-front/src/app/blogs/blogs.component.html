@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" (change)="searchBlog($event)" />
+        <button type="button" class="btn btn-outline-primary">search</button>
+      </div>
+    <div *ngFor="let blog of blogs; let i = index">
+        <div class="card my-4" [ngClass]="{'green-border': blog.upvote > blog.downvote, 'red-border' : blog.upvote<blog.downvote }">
+                <h5 class="card-header">Blog {{ i + 1 }}</h5>
+                <h5 class="card-header">{{blog.title}}</h5>
+                <h5 class="card-header">{{blog.author}}</h5>
+                <div class="card-body">
+                    <div class="col-2 text-truncate">
+                    <p class="card-text">{{blog.content}}</p>
+                    </div>
+                    <a [routerLink]="['blog',blog._id]" class="card-link">Read more</a>
+                    <div class="vote">
+                        <h6>upvote {{blog.upvote}}</h6>
+                        <h6>downvote {{blog.downvote}}</h6>
+                    </div>
+                    <div class="vote">
+                       
+                        <button type="button" class="btn btn-success" (click)="upVote(blog._id)">upvote</button>
+                        <button type="button" class="btn btn-danger"(click)="downVote(blog._id)">downvote</button>                    
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

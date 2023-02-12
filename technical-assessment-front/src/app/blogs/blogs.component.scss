@@ -1,0 +1,19 @@
+.vote{
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+}
+
+.green-border{
+    border-color: green;
+    border-width: 5px;
+}
+
+.red-border{
+    border-color: red;
+    border-width: 5px;
+}
+.limitTextHeight {
+    height: 20px;
+    overflow: hidden;
+}
